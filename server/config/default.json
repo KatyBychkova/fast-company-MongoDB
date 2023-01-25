@@ -1,0 +1,4 @@
+{
+  "port":"8080",
+  "mongoUri": "mongodb+srv://kats:JFD1234@cluster0.chdq9qg.mongodb.net/FC-app?retryWrites=true&w=majority"
+}
