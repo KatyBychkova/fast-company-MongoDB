@@ -9,6 +9,11 @@ module.exports = async () => {
     if (professions.length !== professionMock.length) {
         await createInitialEntity(Profession, professionMock) // если колво профессий в бд и в mock-данных разное, сохраняем все знаяения в БД
     }
+
+    const qualities = await Quality.find()  // Проверяем какие профессии есть в базе данных. find вернет всегда массив, ели ничего нет - пустой массив
+    if (qualities.length !== qualitiesMock.length) {
+        await createInitialEntity(Quality, qualitiesMock) // если колво профессий в бд и в mock-данных разное, сохраняем все знаяения в БД
+    }
 }
 
 async function createInitialEntity(Model, data) {

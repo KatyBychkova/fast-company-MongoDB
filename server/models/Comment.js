@@ -1,0 +1,22 @@
+const {Schema, model} = require('mongoose')
+
+const schema = new Schema({
+    content: {
+        type: String,
+        required: true
+    },
+    // На чьей странице находится комментарий
+    pageId: {
+        type: {type: Schema.Types.ObjectId, ref: 'User'},
+        required: true
+    },
+    // Кто оставил комментарий
+    userId: {
+        type: String,
+        required: true
+    },
+}, {
+    timestamps: {createdAt: 'created_at'} // вместо  createdAt , который создает MDB, создаем created_at
+})
+
+module.exports = model('Comment', schema)

@@ -4,12 +4,15 @@ const config = require('config')
 const chalk = require('chalk')
 const {connect} = require('mongoose')
 const initDatabase = require('./startUp/initDatabase')
+const routes = require('./routes')
 
 
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+
+app.use('/api', routes)  // все запросы кот сервер будет отдавать будут находиться по префиксу api
 
 const PORT = config.get('port') ?? 8080
 
