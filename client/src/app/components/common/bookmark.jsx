@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Bookmark = ({ status, ...rest }) => {
+    console.log(status);
     return (
         <button {...rest}>
             <i className={"bi bi-bookmark-heart" + (status ? "-fill" : "")}></i>

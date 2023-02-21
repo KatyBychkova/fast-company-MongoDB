@@ -25,7 +25,7 @@ const UsersListPage = () => {
     const [searchQuery, setSearchQuery] = useState(""); // хранение значений из строки поиска
     const pageSize = 8;
 
-    console.log(users);
+    // console.log(users);
 
     const handleDelete = (userId) => {
         // setUsers(users.filter((user) => user._id !== userId));
@@ -38,8 +38,7 @@ const UsersListPage = () => {
             }
             return user;
         });
-        // setUsers( console.log(userId););
-        console.log(console.log(newArray));
+        console.log("newArray", newArray);
     };
 
     useEffect(() => {
@@ -70,6 +69,7 @@ const UsersListPage = () => {
         // filteredUsers  - юзеры отфильтрованные по профессии, либо через search, либо все юзеры если фильтра нет
 
         function filterUsers(data) {
+            console.log(data);
             const filteredUsers = searchQuery
                 ? data.filter(
                       (user) =>
@@ -81,7 +81,7 @@ const UsersListPage = () => {
                 ? data.filter(
                       (user) =>
                           JSON.stringify(user.profession) ===
-                          JSON.stringify(selectedProf)
+                          JSON.stringify(selectedProf._id)
                   )
                 : data;
             return filteredUsers.filter((u) => u._id !== currentUserId); // в списке юзеров исключаем текущего

@@ -20,6 +20,10 @@ const schema = new Schema({
     sex: {type: String, enum: ['male', 'female']},
     profession: {type: Schema.Types.ObjectId, ref: 'Profession'}, // уникальный Id в MongoDB. ref: '' -связь между этой записью и коллекцией Profession
     qualities: [{type: Schema.Types.ObjectId, ref: 'Quality'}], // качеств может быть много, поэтому все обернули в массив []
+    bookmark: {
+        type: Boolean,
+        default: false,
+    },
 }, {timestamps: true})
 
 module.exports = model('User', schema)
